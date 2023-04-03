@@ -1,0 +1,14 @@
+import PySimpleGUI as simpleGui
+#Difining the layout of the interface
+layout = [[simpleGui.Input(key='-INPUT-TEXT-'), simpleGui.Button('Speak')],
+          [simpleGui.Text('Select Voice Type'), simpleGui.Radio('Male', 'gender', True, key='-MALE-RB-'),
+           simpleGui.Radio('Female', 'gender', key='-FEMALE-RB-')],
+          [simpleGui.Text('Volume', font=20),
+           simpleGui.Slider(range=(1, 10), default_value=5, expand_x=True, enable_events=True, orientation='horizontal',
+                            key='-VOL-')],
+          [simpleGui.Text('Speed', font=20),
+           simpleGui.Slider(range=(50, 300), default_value=200, expand_x=True, enable_events=True,
+                            orientation='horizontal', key='-SPEED-', resolution=5)]]
+
+#Defining the frame of the window where everything will take place
+window = simpleGui.Window('Text to Speech App', layout)
